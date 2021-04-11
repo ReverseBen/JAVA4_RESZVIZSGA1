@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Topics</title>
+
+<style>
+body {
+	background-color: lightgray;
+}
+
+.createbutton, .backbutton {
+	text-decoration: none;
+	color: black;
+	border: solid 2px;
+	padding: 2px 2px 2px 2px;
+}
+
+.title {
+	text-decoration: none;
+	color: black;
+}
+
+.form {
+	position: relative;
+	margin: 0 auto;
+	border: solid 2px black;
+	width: max-content;
+}
+</style>
+</head>
+<body>
+	<div>
+		<form th:action="@{/topic/search}" method="get">
+			<label for="site-search">Search the site:</label> <input
+				type="search" id="site-search" name="q" th:value="${queryString}">
+			<button>Search</button>
+		</form>
+	</div>
+	<br />
+	<hr />
+	<br />
+	<div>
+		<a class="createbutton" th:href=@{/topic/new}>Create Topic</a>
+	</div>
+	<br />
+	<hr />
+	<br />
+	<table class="form">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Topic title</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="t : ${topics}">
+				<td><span th:text="${t.username}"></span></td>
+				<td><a class="title"
+					th:href="@{/topic/{id}/posts(id=${t.id})}"
+					th:text="${t.topicTitle}"></a></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<hr />
+	<br />
+	<a class="backbutton" th:href="@{/}">Vissza</a>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Add Comment</title>
+<style>
+body {
+	background-color: lightgray;
+}
+
+.new {
+	position: relative;
+	border: solid 2px black;
+	margin: 0 auto;
+	padding: 2px 2px 2px 2px;
+	width: max-content;
+}
+
+.save {
+	position: relative;
+	width: max-content;
+	margin: 0 auto;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+</style>
+</head>
+<body>
+	<br />
+	<hr />
+	<br />
+	<div class="new">
+		<form
+			th:action="@{/topic/{id}/post/{pid}/comments/new(id=${topic_id},pid=${post_id})}"
+			method="post">
+			<div>
+				<label>Username</label> <input type="text" name="username"
+					required="required" />
+			</div>
+			<div>
+				<label>Comment </label> <input type="text" name="commentText"
+					required="required" />
+			</div>
+			<hr />
+			<div class="save">
+				<button>Save</button>
+			</div>
+		</form>
+	</div>
+	<br />
+	<hr />
+	<br />
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Welcome!</title>
+<!--  <link rel="stylesheet" type="text/css" href="./static/main.css"/>-->
+<!-- <link rel="stylesheet" th:href="@{/main.css}"/>-->
+<link th:href="@{/styles/main.css}" rel="stylesheet" />
+<style > body {
+    background-color: lightgray;
+}
+p {
+    color: black;
+    font-weight: bold;
+}
+.topics {
+    position: absolute;
+    top: 18px;
+    left: 110px;
+}
+a {
+    text-decoration: none;
+    color: black;
+    border: solid 2px;
+    padding: 2px 2px 2px 2px;
+}
+</style>
+</head>
+<body>
+	<div>
+		<p>WebForum</p>
+	</div>
+	<div>
+		<a th:href=@{/topic/}>Topics</a>
+	</div>
+	<div>
+		<p>Üdvözlünk Fórumunkon!
+		Örülünk, hogy nálunk jársz!
+		Több, mint 1000 téma kapcsán találsz magadnak olvasnivalót, különböző problémákra vonatkozóan.
+		Kezdve a hardverektől,szofverektől egészen a hitech cuccokig.
+		</p>
+	</div>	
+</body>
+</html>

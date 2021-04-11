@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Comment</title>
+<style>
+body {
+	background-color: lightgray;
+}
+
+.createbutton, .backbutton {
+	text-decoration: none;
+	color: black;
+	border: solid 2px;
+	padding: 2px 2px 2px 2px;
+}
+
+.form {
+	position: relative;
+	margin: 0 auto;
+	border: solid 2px black;
+	width: max-content;
+}
+</style>
+</head>
+<body>
+	<br />
+	<hr />
+	<br />
+	<div>
+		<a class="createbutton"
+			th:href=@{/topic/{tid}/post/{pid}/comments/new(tid=${topic_id},pid=${post_id})}>Add
+			Comment</a>
+	</div>
+	<br />
+	<hr />
+	<br />
+	<table class="form">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Comment</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="c : ${comments}">
+				<td><span th:text="${c.username}"></span></td>
+				<td><span th:text="${c.commentText}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<a class="backbutton" th:href="@{/topic/{tid}/posts(tid=${topic_id})}">Vissza</a>
+</body>
+</html>
